@@ -72,20 +72,9 @@ class Clock {
 
     initializeClock() {
         const date = new Date();
-        const hours = date.getHours();
-        const minutes = date.getMinutes();
-        const second = date.getSeconds();
-        for (let i = 0; i < 60; i++) {
-            this.queueSecond.enqueue((second) % 60);
-        }
-        for (let i = 0; i < 60; i++) {
-            this.queueMinute.enqueue((minutes) % 60);
-        }
-        for (let i = 0; i < 60; i++) {
-            this.queueHour.enqueue((hours) % 60);
-        }
-
-
+        this.queueSecond.enqueue(date.getSeconds());
+        this.queueMinute.enqueue(date.getMinutes());
+        this.queueHour.enqueue(date.getHours());
     }
 
     start() {
